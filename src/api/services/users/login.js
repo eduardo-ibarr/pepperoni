@@ -1,6 +1,7 @@
 const { notFound } = require("../../../constants/error_constants")
 const userSchema = require("../../../models/user")
 const connection = require("../../../database/connection")
+const jwt = require("jsonwebtoken")
 
 module.exports = (req, res) => {
     const cpf = req.body.cpf
@@ -15,7 +16,8 @@ module.exports = (req, res) => {
                 else{
                     arr.forEach(item => {
                         if (cpf === item._id && pass === item.senha) {
-                            res.status(200).send("SUCESS")
+                            const token = jwt.sign({userID: 1}, process.env.SECRET, { expiresIn: 1800 })
+                            return res.status(200).json({auth: true, message: "SUCESS", token, expiresIn: 1800})
                         } else {
                             res.status(400).send("INCORRECT DATA")
                         }
