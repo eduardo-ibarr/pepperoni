@@ -6,8 +6,13 @@ module.exports = (req, res) => {
     try {
         connection.then(
             () => {
-                const users = userSchema.find({}, (err, arr) => {
-                    if (err) {throw err}
+                const users = userSchema.find((err, arr) => {
+                    if(err){
+                        res.send(err);
+                    }
+                    else{
+                        res.send(arr);
+                    }
                 })
                 res.status(200).json(users)        
             },
