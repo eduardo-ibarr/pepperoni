@@ -13,11 +13,13 @@ module.exports = (req, res) => {
                     res.status(400).json(err);
                 }
                 else{
-                    if (cpf === arr._id && pass === arr.senha) {
-                        res.status(200).send("SUCESS", arr)
-                    } else {
-                        res.status(400).send("INCORRECT DATA")
-                    }
+                    arr.forEach(item => {
+                        if (cpf === item._id && pass === item.senha) {
+                            res.status(200).send("SUCESS", arr)
+                        } else {
+                            res.status(400).send("INCORRECT DATA")
+                        }
+                    })
                 }
             })
         },
