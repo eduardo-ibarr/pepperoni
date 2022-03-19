@@ -25,10 +25,6 @@ class User {
     delete(req, res) {
         deleteService(req, res)
     }
-
-    login(req, res) {
-        loginService(req, res)
-    }
 }
 
 module.exports = new User

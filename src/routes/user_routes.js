@@ -10,6 +10,4 @@ router.post('/novo_cliente', auth, UserController.create)
 router.put('/clientes/:cpf', auth, UserController.update)
 router.delete('/clientes/:cpf', auth, UserController.delete)
 
-/* router.get("/clientes/login", passport.authenticate('jwt', { session: false }), router) */
-
 module.exports = router
