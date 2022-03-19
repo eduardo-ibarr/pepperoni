@@ -13,7 +13,7 @@ module.exports = (req, res) => {
                 if (index === -1) {
                     res.status(404).send(notFound)
                 } else {
-                    res.status(200).send(results);
+                    res.status(200).send(arr);
                 }
             })
         },
