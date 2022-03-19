@@ -1,11 +1,16 @@
 const { notFound } = require("../../../constants/error_constants")
 const pizzaSchema = require("../../../models/pizza")
+const connection = require("../../../database/connection")
 
-module.exports = async (req, res) => {
+module.exports = (req, res) => {
     try {
-        const pizza = await pizzaSchema.find().lean()
-        res.status(200).send(pizza)
-
+        connection.then(
+            () => {
+                const pizza = pizzaSchema.find().lean()
+                res.status(200).send(pizza)        
+            },
+            err => {throw err}
+        )
     } catch(error) {
         console.error(error)
         res.status(404).send(notFound)

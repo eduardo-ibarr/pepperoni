@@ -1,15 +1,20 @@
 const { badRequest } = require("../../../constants/error_constants")
 const orderSchema = require("../../../models/order")
+const connection = require("../../../database/connection")
 
-module.exports = async (req, res) => {
+module.exports = (req, res) => {
     try {
-        const create = await orderSchema.create(req.body)
-        res.status(201).send({
-            status: 201,
-            message: "Cliente criado com sucesso.",
-            dados: create
-        })
-
+        connection.then(
+            () => {
+                const create = orderSchema.create(req.body)
+                    res.status(201).send({
+                    status: 201,
+                    message: "Pedido criado com sucesso.",
+                    dados: create
+                })
+            },
+            err => {throw err}
+        )
     } catch(error) {
         console.error(error)
         res.status(400).send(badRequest)

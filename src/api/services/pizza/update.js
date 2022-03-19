@@ -1,17 +1,23 @@
 const { badRequest } = require("../../../constants/error_constants")
 const pizzaSchema = require("../../../models/pizza")
+const connection = require("../../../database/connection")
 
-module.exports = async (req, res) => {
+module.exports = (req, res) => {
     const id = req.paramas.id
     const data = req.body
     try {
-        const doc = await pizzaSchema.findOne({_id: id})
-        doc.slug = data
-        await doc.save()
-        res.status(200).send({
-            code: 200,
-            message: `Pizza de ID ${id} atualizada com sucesso.`
-        })
+        connection.then(
+            () => {
+                const doc = pizzaSchema.findOne({_id: id})
+                doc.slug = data
+                doc.save()
+                res.status(200).send({
+                    code: 200,
+                    message: `Pizza com id ${id} atualizada com sucesso.`
+                })
+            },
+            err => {throw err}
+        )
 
     } catch (error) {
         console.error(error)
