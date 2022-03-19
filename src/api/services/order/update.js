@@ -8,11 +8,13 @@ module.exports = (req, res) => {
     try {
         connection.then(
             () => {
-                orderSchema.findOneAndUpdate({_id: id}, data)
-                res.status(200).send({
-                    code: 200,
-                    message: `Pedido com id ${id} atualizado com sucesso.`
-                })
+                orderSchema.findOneAndUpdate({_id: id}, {$set: data}, {new: true}, (err, doc) => {
+                    if (err) {
+                        console.log("Something wrong when updating data!");
+                    }
+                    console.log(doc);
+                });
+                
             },
             err => {throw err}
         )
