@@ -9,10 +9,10 @@ module.exports = (req, res) => {
         () => {
             userSchema.find({ _id: cpf }, (err, arr) => {
                 if(err){
-                    res.json(err);
+                    res.status(400).json(err);
                 }
                 else{
-                    res.send(arr);
+                    res.status(200).send(arr);
                 }
             })
         },

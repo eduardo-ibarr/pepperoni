@@ -10,7 +10,7 @@ module.exports = (req, res) => {
         () => {
             userSchema.find({ _id: cpf },(err, arr) => {
                 if(err){
-                    res.json(err);
+                    res.status(400).json(err);
                 }
                 else{
                     if (cpf === arr[0]._id && pass === arr[0].senha) {
