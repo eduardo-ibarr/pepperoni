@@ -7,7 +7,7 @@ module.exports = (req, res) => {
         () => {
             pizzaSchema.find((err, arr) => {
                 const array = []
-                for (let i = 4; i < 9; i++) {
+                for (let i = 5; i < 10; i++) {
                     const item = arr[i];
                     array.push(item)
                 }
