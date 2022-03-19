@@ -3,24 +3,21 @@ const userSchema = require("../../../models/user")
 const connection = require("../../../database/connection")
 
 module.exports = (req, res) => {
-    try {
-        connection.then(
-            () => {
-                const users = userSchema.find((err, arr) => {
-                    if(err){
-                        res.send(err);
-                    }
-                    else{
-                        res.send(arr);
-                    }
-                })
-                res.status(200).json(users)        
-            },
-            err => {throw err}
-        )
-    } catch(error) {
-        console.error(error)
-        res.status(404).send(notFound)
-    }
+    connection.then(
+        () => {
+            const users = userSchema.find((err, arr) => {
+                if(err){
+                    res.send(err);
+                }
+                else{
+                    res.send(arr);
+                }
+            })
+            res.status(200).json(users)        
+        },
+        err => {
+            console.error(error)
+            res.status(404).send(notFound)
+        })
 }
 
