@@ -8,7 +8,7 @@ module.exports = (req, res) => {
     try {
         connection.then(
             () => {
-                orderSchema.findOne({_id: id}).updateOne(data)
+                orderSchema.findOneAndUpdate({_id: id}, data)
                 res.status(200).send({
                     code: 200,
                     message: `Pedido com id ${id} atualizado com sucesso.`
