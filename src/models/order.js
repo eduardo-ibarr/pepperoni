@@ -14,7 +14,7 @@ const trocoSchema = new mongoose.Schema({
 const orderSchema = new mongoose.Schema(
 	{
         _id: { type: Number, required: true},
-        pedidos: { type: Array, required: true, default: []},
+        resumo: { type: Array, required: true, default: []},
         observacoes: { type: String, required: false, default: null },
         dados: [dadosSchema],
         troco: [trocoSchema],
