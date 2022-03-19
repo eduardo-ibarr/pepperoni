@@ -5,7 +5,7 @@ const connection = require("../../../database/connection")
 module.exports = (req, res) => {
     connection.then( 
         () => {
-            pizzaSchema.find({ _id: id }, (err, arr) => {
+            pizzaSchema.find((err, arr) => {
                 const array = []
                 for (let i = 4; i < 9; i++) {
                     const item = arr[i];
