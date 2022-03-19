@@ -16,7 +16,7 @@ module.exports = (req, res) => {
             res.status(200).json(users)        
         },
         err => {
-            console.error(error)
+            console.error(err)
             res.status(404).send(notFound)
         })
 }
