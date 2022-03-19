@@ -11,11 +11,16 @@ module.exports = (req, res) => {
                 }
                 else{
                     const five = []
-                    for (let i = 0; i <= 5; i++) {
+                    for (let i = 0; i <= 4; i++) {
                         const element = arr[i];
                         five.push(element)
                     }
-                    res.json(five);
+                    const moreFive = []
+                    for (let i = 4; i <= 9; i++) {
+                        const element = arr[i];
+                        moreFive.push(element)
+                    }
+                    res.json(five, moreFive);
                 }
             })
         )
