@@ -10,4 +10,6 @@ router.post('/novo_cliente', auth, UserController.create)
 router.put('/clientes/:cpf', auth, UserController.update)
 router.delete('/clientes/:cpf', auth, UserController.delete)
 
+router.get('/clientes/auth/', auth, UserController.login)
+
 module.exports = router
