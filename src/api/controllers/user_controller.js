@@ -3,7 +3,6 @@ const readService = require("../services/users/read")
 const readOneService = require("../services/users/read_one")
 const updateService = require("../services/users/update")
 const deleteService = require("../services/users/delete")
-const loginService = require("../services/users/login")
 
 class User {
     create(req, res) {
