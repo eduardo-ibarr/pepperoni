@@ -5,7 +5,7 @@ const connection = require("../../../database/connection")
 module.exports = (req, res) => {
     connection.then(
         () => {
-            const users = userSchema.find((err, arr) => {
+            userSchema.find((err, arr) => {
                 if(err){
                     res.send(err);
                 }
@@ -13,7 +13,6 @@ module.exports = (req, res) => {
                     res.send(arr);
                 }
             })
-            res.status(200).json(users)        
         },
         err => {
             console.error(err)
