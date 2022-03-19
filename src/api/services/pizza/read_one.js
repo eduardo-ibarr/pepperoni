@@ -6,14 +6,18 @@ module.exports = (req, res) => {
     const id = req.params.id
     try {
         connection.then(
-            () => {
-                const pizza = pizzaSchema.find({_id: id}).lean()
-                res.status(200).send(pizza)
-            },
-            err => {throw err}
+            pizzaSchema.find({ _id: id }, (err, arr) => {
+                const index = arr.findIndex(item => item)
+
+                if (index === -1) {
+                    res.status(404).send(notFound)
+                } else {
+                    res.status(200).send(arr);
+                }
+            })
         )
-    } catch(error) {
-        console.error(error)
+    } catch(err) {
+        console.error(err)
         res.status(404).send(notFound)
     }
 }

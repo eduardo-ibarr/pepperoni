@@ -5,8 +5,14 @@ const connection = require("../../../database/connection")
 module.exports = (req, res) => {
     connection.then(
         () => {
-            const order = orderSchema.find().lean()
-            res.status(200).send(order)        
+            orderSchema.find((err, arr) => {
+                if(err){
+                    res.json(err);
+                }
+                else{
+                    res.send(arr);
+                }
+            })      
         },
         err => {
             console.error(err)

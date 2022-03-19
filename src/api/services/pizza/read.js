@@ -5,11 +5,14 @@ const connection = require("../../../database/connection")
 module.exports = (req, res) => {
     try {
         connection.then(
-            () => {
-                const pizza = pizzaSchema.find().lean()
-                res.status(200).send(pizza)        
-            },
-            err => {throw err}
+            pizzaSchema.find((err, arr) => {
+                if(err){
+                    res.json(err);
+                }
+                else{
+                    res.send(arr);
+                }
+            })
         )
     } catch(error) {
         console.error(error)

@@ -4,21 +4,22 @@ const connection = require("../../../database/connection")
 
 module.exports = (req, res) => {
     const id = req.params.id
-    try {
-        connection.then(
-            () => {
-                pizzaSchema.deleteOne({_id: id})
-                res.status(200).send({
-                    code: 201,
-                    message: `Pizza com id ${id} excluída com sucesso.`
-                })
-            },
-            err => {throw err}
-        )
-    } catch (error) {
-        console.error(error)
-        res.status(404).send(notFound)
-    }
-
+    connection.then(
+        () => {
+            pizzaSchema.findOneAndDelete({_id: id}, (error, doc) => {
+                if (error) {
+                    console.error(error)
+                }
+              })
+            res.status(200).send({
+                code: 201,
+                message: `Pizza com ID ${id} excluída com sucesso.`
+            })
+        },
+        err => {
+            console.error(err)
+            res.status(404).send(notFound)
+        }
+    )
 }
 

@@ -8,9 +8,7 @@ module.exports = (req, res) => {
     try {
         connection.then(
             () => {
-                const doc = userSchema.findOne({_id: cpf})
-                doc.slug = data
-                doc.save()
+                userSchema.findOneAndUpdate({_id: cpf}, {$set: data});
                 res.status(200).send({
                     code: 200,
                     message: `Cliente com CPF ${cpf} atualizado com sucesso.`

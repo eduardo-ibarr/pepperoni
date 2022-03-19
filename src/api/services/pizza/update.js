@@ -8,9 +8,7 @@ module.exports = (req, res) => {
     try {
         connection.then(
             () => {
-                const doc = pizzaSchema.findOne({_id: id})
-                doc.slug = data
-                doc.save()
+                pizzaSchema.findOneAndUpdate({_id: id}, {$set: data});
                 res.status(200).send({
                     code: 200,
                     message: `Pizza com id ${id} atualizada com sucesso.`

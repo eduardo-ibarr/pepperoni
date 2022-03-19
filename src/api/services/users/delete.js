@@ -7,7 +7,11 @@ module.exports = (req, res) => {
     try {
         connection.then(
             () => {
-                userSchema.deleteOne({_id: cpf})
+                userSchema.findOneAndDelete({_id: id}, (error, doc) => {
+                    if (error) {
+                        console.error(error)
+                    }
+                  })
                 res.status(200).send({
                     code: 201,
                     message: `Cliente com CPF ${cpf} excluído com sucesso.`
