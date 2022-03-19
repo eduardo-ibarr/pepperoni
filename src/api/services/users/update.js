@@ -3,7 +3,7 @@ const userSchema = require("../../../models/user")
 const connection = require("../../../database/connection")
 
 module.exports = (req, res) => {
-    const cpf = req.paramas.cpf
+    const cpf = req.params.cpf
     const data = req.body
     try {
         connection.then(

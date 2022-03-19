@@ -3,7 +3,7 @@ const orderSchema = require("../../../models/order")
 const connection = require("../../../database/connection")
 
 module.exports = (req, res) => {
-    const id = req.paramas.id
+    const id = req.params.id
     const data = req.body
     try {
         connection.then(
