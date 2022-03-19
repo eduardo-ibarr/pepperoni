@@ -1,14 +1,16 @@
 const mongoose = require("mongoose")
 
 const dadosSchema = new mongoose.Schema({
+    _id: { type: Number, required: false, default: null},
     nome: { type: String, required: true },
     endereco: { type: String, required: true },
     pagamento: { type: String, required: true }
 })
 
 const trocoSchema = new mongoose.Schema({
-    dinheiro: { type: Number, required: false, default: 0 },
-    devolve: { type: Number, required: false, default: 0 }
+    _id: { type: Number, required: false, default: null},
+    dinheiro: { type: Number, required: false, default: null },
+    devolve: { type: Number, required: false, default: null }
 })
 
 const orderSchema = new mongoose.Schema(
