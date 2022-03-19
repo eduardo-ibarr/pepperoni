@@ -10,7 +10,12 @@ module.exports = (req, res) => {
                     res.json(err);
                 }
                 else{
-                    res.json(arr);
+                    const five = []
+                    for (let i = 0; i <= 5; i++) {
+                        const element = array[i];
+                        five.push(element)
+                    }
+                    res.json(five);
                 }
             })
         )
