@@ -1,5 +1,5 @@
 const { badRequest } = require("../../../constants/error_constants")
-const orderSchema = require("../../../models/orders")
+const orderSchema = require("../../../models/order")
 
 module.exports = async (req, res) => {
     const id = req.paramas.id
