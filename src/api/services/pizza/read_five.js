@@ -5,18 +5,13 @@ const connection = require("../../../database/connection")
 module.exports = (req, res) => {
     connection.then(
         () => {
-            pizzaSchema.find((err, arr) => {
-                if(err){
-                    res.json(err);
+            pizzaSchema.find({ _id: id }, (err, arr) => {
+                const array = []
+                for (let i = 0; i < 5; i++) {
+                    const item = arr[i];
+                    array.push(item)
                 }
-                else{
-                    const five = []
-                    for (let i = 0; i <= 4; i++) {
-                        const element = arr[i];
-                        five.push(element)
-                    }
-                    res.json({five});
-                }
+                res.status(200).send(array);
             })
         },
         err => {
