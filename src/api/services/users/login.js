@@ -15,7 +15,7 @@ module.exports = (req, res) => {
                 else{
                     arr.forEach(item => {
                         if (cpf === item._id && pass === item.senha) {
-                            res.status(200).send("SUCESS", arr)
+                            res.status(200).send("SUCESS")
                         } else {
                             res.status(400).send("INCORRECT DATA")
                         }
