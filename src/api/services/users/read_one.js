@@ -4,11 +4,17 @@ const connection = require("../../../database/connection")
 
 module.exports = (req, res) => {
     const cpf = req.params.cpf
-    
+
     connection.then(
         () => {
-            const user = userSchema.find({_id: cpf}).lean()
-            res.status(200).send(user)
+            userSchema.find({ _id: cpf }, (err, arr) => {
+                if(err){
+                    res.json(err);
+                }
+                else{
+                    res.send(arr);
+                }
+            })
         },
         err => { 
             console.error(err)
