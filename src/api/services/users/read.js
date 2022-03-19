@@ -6,7 +6,7 @@ module.exports = (req, res) => {
     try {
         connection.then(
             () => {
-                const users = userSchema.find().lean()
+                const users = userSchema.find()
                 res.status(200).send(users)        
             },
             err => {throw err}
