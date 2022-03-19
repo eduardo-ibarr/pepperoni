@@ -8,9 +8,7 @@ module.exports = (req, res) => {
     try {
         connection.then(
             () => {
-                const doc = orderSchema.findOne({_id: id})
-                doc.slug = data
-                doc.save()
+                orderSchema.findOne({_id: id}).updateOne(data)
                 res.status(200).send({
                     code: 200,
                     message: `Pedido com id ${id} atualizado com sucesso.`
