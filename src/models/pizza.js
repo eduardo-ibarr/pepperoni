@@ -6,7 +6,7 @@ const pizzaSchema = new mongoose.Schema(
         nome: { type: String, required: true },
         preco: { type: Number, required: true},
         detalhes: { type: String, required: false}
-	}
+    }
 )
 
 const model = mongoose.model("Pizzas", pizzaSchema)

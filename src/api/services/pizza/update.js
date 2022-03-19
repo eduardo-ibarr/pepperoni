@@ -3,7 +3,7 @@ const pizzaSchema = require("../../../models/pizza")
 const connection = require("../../../database/connection")
 
 module.exports = (req, res) => {
-    const id = req.params.id
+    const id = parseInt(req.params.id)
     const data = req.body
     try {
         connection.then(
