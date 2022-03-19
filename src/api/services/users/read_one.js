@@ -8,11 +8,12 @@ module.exports = (req, res) => {
     connection.then(
         () => {
             userSchema.find({ _id: cpf }, (err, arr) => {
-                if(err){
-                    res.status(400).json(err);
-                }
-                else{
-                    res.status(200).send(arr);
+                const index = arr.findIndex(item => item)
+
+                if (index === -1) {
+                    res.status(404).send(notFound)
+                } else {
+                    res.status(200).send(results);
                 }
             })
         },
