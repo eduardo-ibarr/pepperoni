@@ -13,7 +13,7 @@ module.exports = (req, res) => {
                     res.status(400).json(err);
                 }
                 else{
-                    if (cpf === arr[0]._id && pass === arr[0].senha) {
+                    if (cpf === arr._id && pass === arr.senha) {
                         res.status(200).send("SUCESS", arr)
                     } else {
                         res.status(400).send("INCORRECT DATA")
