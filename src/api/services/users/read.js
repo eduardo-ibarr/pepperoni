@@ -7,7 +7,7 @@ module.exports = (req, res) => {
         () => {
             userSchema.find((err, arr) => {
                 if(err){
-                    res.send(err);
+                    res.json(err);
                 }
                 else{
                     res.send(arr);
