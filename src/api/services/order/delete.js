@@ -7,7 +7,11 @@ module.exports = (req, res) => {
 
     connection.then(
         () => {
-            orderSchema.findOneAndDelete({_id: id})
+            orderSchema.findOneAndDelete({_id: id}, (error, doc) => {
+                if (error) {
+                    console.error(error)
+                }
+              })
             res.status(200).send({
                 code: 201,
                 message: `Pedido com ID ${id} excluído com sucesso.`
