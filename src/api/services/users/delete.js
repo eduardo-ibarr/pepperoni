@@ -2,12 +2,12 @@ const { notFound } = require("../../../constants/error_constants")
 const userSchema = require("../../../models/user")
 const connection = require("../../../database/connection")
 
-module.exports = async (req, res) => {
+module.exports = (req, res) => {
     const cpf = req.paramas.cpf
     try {
         connection.then(
             () => {
-                await userSchema.deleteOne({_id: cpf})
+                userSchema.deleteOne({_id: cpf})
                 res.status(200).send({
                     code: 201,
                     message: `Cliente com CPF ${cpf} excluído com sucesso.`

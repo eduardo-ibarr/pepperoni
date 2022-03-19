@@ -2,13 +2,13 @@ const { badRequest } = require("../../../constants/error_constants")
 const userSchema = require("../../../models/user")
 const connection = require("../../../database/connection")
 
-module.exports = async (req, res) => {
+module.exports = (req, res) => {
     const cpf = req.paramas.cpf
     const data = req.body
     try {
         connection.then(
             () => {
-                const doc = await userSchema.findOne({_id: cpf})
+                const doc = userSchema.findOne({_id: cpf})
                 doc.slug = data
                 await doc.save()
                 res.status(200).send({
