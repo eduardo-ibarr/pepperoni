@@ -20,7 +20,7 @@ module.exports = (req, res) => {
                         const element = arr[i];
                         moreFive.push(element)
                     }
-                    res.json(five, moreFive);
+                    res.json({five, moreFive});
                 }
             })
         )
