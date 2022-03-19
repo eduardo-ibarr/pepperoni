@@ -8,7 +8,7 @@ module.exports = (req, res) => {
 
     connection.then(
         () => {
-            orderSchema.findOneAndUpdate({_id: id}, {$set: data}, {new: true});
+            orderSchema.findOneAndUpdate({_id: id}, {$set: data});
         },
         err => {
             console.error(err)
