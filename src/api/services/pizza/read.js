@@ -10,7 +10,7 @@ module.exports = (req, res) => {
                     res.json(err);
                 }
                 else{
-                    res.send(arr);
+                    res.json(arr);
                 }
             })
         )
