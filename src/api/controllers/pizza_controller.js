@@ -1,5 +1,5 @@
 const createService = require("../services/pizza/create")
-const readService = require("../services/pizza/read")
+const readService = require("../services/pizza/read_all")
 const readFiveService = require("../services/pizza/read_five")
 const readTenService = require("../services/pizza/read_ten")
 const readOneService = require("../services/pizza/read_one")
