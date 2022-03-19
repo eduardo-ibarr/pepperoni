@@ -3,8 +3,8 @@ const pizzaSchema = require("../../../models/pizza")
 const connection = require("../../../database/connection")
 
 module.exports = (req, res) => {
-    try {
-        connection.then(
+    connection.then(
+        () => {
             pizzaSchema.find((err, arr) => {
                 if(err){
                     res.json(err);
@@ -18,10 +18,11 @@ module.exports = (req, res) => {
                     res.json({five});
                 }
             })
-        )
-    } catch(error) {
-        console.error(error)
-        res.status(404).send(notFound)
-    }
+        },
+        err => {
+            console.error(err)
+            res.status(404).send(notFound)
+        }
+    )
 }
 

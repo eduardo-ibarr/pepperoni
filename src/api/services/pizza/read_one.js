@@ -4,8 +4,8 @@ const connection = require("../../../database/connection")
 
 module.exports = (req, res) => {
     const id = req.params.id
-    try {
-        connection.then(
+    connection.then(
+        () => {
             pizzaSchema.find({ _id: id }, (err, arr) => {
                 const index = arr.findIndex(item => item)
 
@@ -15,10 +15,11 @@ module.exports = (req, res) => {
                     res.status(200).send(arr);
                 }
             })
-        )
-    } catch(err) {
-        console.error(err)
-        res.status(404).send(notFound)
-    }
+        },
+        err => {
+            console.error(err)
+            res.status(404).send(notFound)
+        }
+    )
 }
 
