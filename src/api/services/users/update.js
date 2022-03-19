@@ -10,7 +10,7 @@ module.exports = (req, res) => {
             () => {
                 const doc = userSchema.findOne({_id: cpf})
                 doc.slug = data
-                await doc.save()
+                doc.save()
                 res.status(200).send({
                     code: 200,
                     message: `Cliente com CPF ${cpf} atualizado com sucesso.`
