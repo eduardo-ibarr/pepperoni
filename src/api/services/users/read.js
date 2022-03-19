@@ -6,13 +6,10 @@ module.exports = (req, res) => {
     try {
         connection.then(
             () => {
-                const users = userSchema.find((err, arr) => {
-                    if (err) console.log(err)
-
-                    const json = JSON.stringify(arr)
-                    return json
+                const users = userSchema.find({}, (err, arr) => {
+                    if (err) {throw err}
                 })
-                res.status(200).send(users)        
+                res.status(200).json(users)        
             },
             err => {throw err}
         )
