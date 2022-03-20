@@ -20,7 +20,8 @@ const orderSchema = new mongoose.Schema(
         observacoes: { type: String, required: false, default: null },
         dados: [dadosSchema],
         troco: [trocoSchema],
-        feedback: { type: String, required: false, default: null}
+        feedback: { type: String, required: false, default: null},
+        criadoEm: { type: Date, required: true }
 	}
 )
 
