@@ -11,7 +11,13 @@ module.exports = (req, res) => {
                     const item = arr[i];
                     array.push(item)
                 }
-                res.status(200).send(array);
+                res.status(200).send({
+                    primeira: array[0],
+                    segunda: array[1],
+                    terceira: array[2],
+                    quarta: array[3],
+                    quinta: array[4],
+                });
             })
         },
         err => {
