@@ -7,7 +7,7 @@ module.exports = (req, res) => {
     const data = req.body
     connection.then(
         () => {
-            userSchema.findByIdAndUpdate(cpf, { $push: {pedidos: data } }, (err, data) => {
+            userSchema.findOneAndUpdate({_id: cpf}, { $push: {pedidos: data } }, (err, data) => {
                 if(err){
                     console.log(err);
                 }
