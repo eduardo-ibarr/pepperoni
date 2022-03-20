@@ -5,7 +5,6 @@ const pizzaSchema = new mongoose.Schema(
         _id: { type: Number, required: true },
         nome: { type: String, required: true },
         preco: { type: Number, required: true},
-        detalhes: { type: String, required: false}
     }
 )
 
