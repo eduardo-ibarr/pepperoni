@@ -17,7 +17,7 @@ module.exports = (req, res) => {
                         setima: array[6],
                         oitava: array[7],
                         nona: array[8],
-                        decima: array[9],
+                        decima: array[9]
                     }
                 );
             })
