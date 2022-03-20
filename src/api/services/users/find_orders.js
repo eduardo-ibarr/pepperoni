@@ -13,7 +13,7 @@ module.exports = (req, res) => {
                 if (index === -1) {
                     res.status(404).send(notFound)
                 } else {
-                    arr.find(item => {
+                    arr.forEach(item => {
                         const pedidos = item === "pedidos"
                         res.status(200).send(pedidos);
                     })
