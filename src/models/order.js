@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 const dadosSchema = new mongoose.Schema({
     _id: { type: Number, required: false, default: null},
     nome: { type: String, required: true },
-    endereco: { type: String, required: true },
+    endereco: { type: Array, required: true },
     pagamento: { type: String, required: true }
 })
 
