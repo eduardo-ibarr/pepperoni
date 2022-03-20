@@ -9,7 +9,7 @@ router.get('/clientes/:cpf', auth, UserController.readOne)
 router.get('/cliente/:cpf', UserController.findOrder)
 router.get('/endereco/:cpf', UserController.findAdress)
 router.post('/novo_cliente', auth, UserController.create)
-router.put('/clientes/:cpf/:id', auth, UserController.addOrder)
+router.put('/cliente/:cpf', auth, UserController.addOrder)
 router.put('/clientes/:cpf', auth, UserController.update)
 router.delete('/clientes/:cpf', auth, UserController.delete)
 
