@@ -3,11 +3,11 @@ const userSchema = require("../../../models/user")
 const connection = require("../../../database/connection")
 
 module.exports = (req, res) => {
-    const cpf = parseInt(req.params.cpf)
+    const cpf = req.params.cpf
     const data = req.body
     connection.then(
         () => {
-            userSchema.findOneAndUpdate({_id: cpf}, { $push: {pedidos: data } }, (err, data) => {
+            userSchema.findOneAndUpdate({_id: cpf}, { $push: { pedidos: data } }, (err, data) => {
                 if(err){
                     console.log(err);
                 }
