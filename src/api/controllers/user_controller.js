@@ -6,6 +6,7 @@ const deleteService = require("../services/users/delete")
 const loginService = require("../services/users/login")
 const addOrderService = require("../services/users/add_order")
 const findOrderService = require("../services/users/find_orders")
+const findAdressService = require("../services/users/find_adress")
 
 class User {
     create(req, res) {
@@ -38,6 +39,10 @@ class User {
 
     findOrder(req, res) {
         findOrderService(req, res)
+    }
+
+    findAdress(req, res) {
+        findAdressService(req, res)
     }
 }
 
