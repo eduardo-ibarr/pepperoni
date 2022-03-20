@@ -13,11 +13,11 @@ module.exports = (req, res) => {
                 }
                 res.status(200).send(
                     {
-                        primeira: array[5],
-                        segunda: array[6],
-                        terceira: array[7],
-                        quarta: array[8],
-                        quinta: array[9],
+                        sexta: array[5],
+                        setima: array[6],
+                        oitava: array[7],
+                        nona: array[8],
+                        decima: array[9],
                     }
                 );
             })
