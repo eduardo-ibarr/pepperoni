@@ -14,8 +14,7 @@ module.exports = (req, res) => {
                     res.status(404).send(notFound)
                 } else {
                     arr.forEach(item => {
-                        const pedidos = item === "pedidos"
-                        res.status(200).send(pedidos);
+                        res.status(200).send(item.pedidos);
                     })
                 }
             })
