@@ -4,6 +4,7 @@ const readOneService = require("../services/users/read_one")
 const updateService = require("../services/users/update")
 const deleteService = require("../services/users/delete")
 const loginService = require("../services/users/login")
+const addOrderService = require("../services/users/add_order")
 
 class User {
     create(req, res) {
@@ -28,6 +29,10 @@ class User {
 
     login(req, res) {
         loginService(req, res)
+    }
+
+    addOrder(req, res) {
+        addOrderService(req, res)
     }
 }
 

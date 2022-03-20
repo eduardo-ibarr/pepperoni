@@ -7,6 +7,7 @@ const UserController = require("../api/controllers/user_controller")
 router.get('/clientes', auth, UserController.read)
 router.get('/clientes/:cpf', auth, UserController.readOne)
 router.post('/novo_cliente', auth, UserController.create)
+router.put('/clientes/:cpf/:id', auth, UserController.addOrder)
 router.put('/clientes/:cpf', auth, UserController.update)
 router.delete('/clientes/:cpf', auth, UserController.delete)
 
