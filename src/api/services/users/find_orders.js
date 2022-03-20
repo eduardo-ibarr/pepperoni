@@ -14,29 +14,7 @@ module.exports = (req, res) => {
                     res.status(404).send(notFound)
                 } else {
                     arr.forEach(item => {
-                        const obj = {}
-                        item.pedidos.forEach(pedido => {
-                            obj = {
-                                    id: pedido._id,
-                                    itens: pedido.resumo.itens.forEach(item => {
-                                        return {
-                                            nome: item.nome,
-                                            preco: item.preco
-                                        }
-                                    }),
-                                    endereco: pedido.endereco.forEach(dado => {
-                                        return {
-                                            cep: dado.cep,
-                                            cidade: dado.dados.cidade,
-                                            bairro: dado.dados.bairro,
-                                            rua: dado.dados.rua,
-                                            numero: dado.numeroCasa
-                                        }
-                                    }),
-                                    pagamento: pedido.pagamento
-                                }
-                        })
-                        res.status(200).send(obj);
+                        res.status(200).send(item.pedidos);
                     })
                 }
             })
