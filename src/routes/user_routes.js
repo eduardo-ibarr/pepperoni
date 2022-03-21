@@ -1,6 +1,5 @@
 const router = require('express').Router()
 const auth = require("../api/auth/verify_jwt")
-const passport = require('passport')
 
 const UserController = require("../api/controllers/user_controller")
 

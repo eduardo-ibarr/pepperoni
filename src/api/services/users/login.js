@@ -1,7 +1,6 @@
 const { notFound } = require("../../../constants/error_constants")
 const userSchema = require("../../../models/user")
 const connection = require("../../../database/connection")
-const jwt = require("jsonwebtoken")
 
 module.exports = (req, res) => {
     const cpf = req.body.cpf
