@@ -4,25 +4,22 @@ const connection = require("../../../database/connection")
 
 module.exports = (req, res) => {
     const cpf = req.params.cpf
-    try {
-        connection.then(
-            () => {
-                userSchema.findOneAndDelete({_id: id}, (error, doc) => {
-                    if (error) {
-                        console.error(error)
-                    }
-                  })
-                res.status(200).send({
-                    code: 201,
-                    message: `Cliente com CPF ${cpf} excluído com sucesso.`
-                })
-            },
-            err => {throw err}
-        )
-    } catch (error) {
-        console.error(error)
-        res.status(404).send(notFound)
-    }
-
+    connection.then(
+        () => {
+            userSchema.findOneAndDelete({_id: cpf}, (error, doc) => {
+                if (error) {
+                    console.error(error)
+                }
+            })
+            res.status(200).send({
+                code: 201,
+                message: `Cliente com CPF ${cpf} excluído com sucesso.`
+            })
+        },
+        err => {
+            console.error(err)
+            res.status(404).send(notFound)
+        }
+    )
 }
 

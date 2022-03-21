@@ -16,10 +16,6 @@ const userSchema = new mongoose.Schema(
 	}
 )
 
-userSchema.method("compare", async (formPass, userPass) => { 
-    return bcrypt.compare(formPass, userPass)
-})
-
 const model = mongoose.model("Clientes", userSchema)
 
 module.exports = model

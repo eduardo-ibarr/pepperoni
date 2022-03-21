@@ -4,7 +4,6 @@ const connection = require("../../../database/connection")
 
 module.exports = (req, res) => {
     const cpf = req.params.cpf
-
     connection.then(
         () => {
             userSchema.find({ _id: cpf }, (err, arr) => {

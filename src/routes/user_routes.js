@@ -7,8 +7,8 @@ const UserController = require("../api/controllers/user_controller")
 router.get('/clientes', auth, UserController.read)
 router.get('/clientes/:cpf', auth, UserController.readOne)
 
-router.get('/cliente/:cpf', UserController.findOrder)
-router.get('/endereco/:cpf', UserController.findAdress)
+router.get('/cliente/:cpf', auth, UserController.findOrder)
+router.get('/endereco/:cpf', auth, UserController.findAdress)
 
 router.post('/novo_cliente', auth, UserController.create)
 

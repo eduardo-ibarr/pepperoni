@@ -6,7 +6,6 @@ const jwt = require("jsonwebtoken")
 module.exports = (req, res) => {
     const cpf = req.body.cpf
     const pass = req.body.pass
-    
     connection.then(
         () => {
             userSchema.find({ _id: cpf },(err, arr) => {
@@ -16,10 +15,9 @@ module.exports = (req, res) => {
                 else{
                     arr.forEach(item => {
                         if (cpf === item._id && pass === item.senha) {
-                            const token = jwt.sign({userID: 1}, process.env.SECRET, { expiresIn: 1800 })
-                            return res.status(200).json({auth: true, message: "SUCESS", token, expiresIn: 1800})
+                            return res.status(200).json({auth: true})
                         } else {
-                            res.status(400).send("INCORRECT DATA")
+                            res.status(400).send({auth: false})
                         }
                     })
                 }
