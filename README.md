@@ -1,16 +1,3 @@
-url do bot: https://eduardo-36h5e.chat.blip.ai/?appKey=cGVwcGVyb25pZmluYWw6MDE2Y2I2NmUtYTUzZC00ZjA0LTg0OGEtZjgxYzNkNzk2MDgx
-
-Para realizar a autenticação na API, envie um POST para https://api-pizzaria.herokuapp.com/api/login com o body:
-
-    {
-        "user": "admin",
-        "password": "admin"
-    }
-
-O token gerado dura 30 minutos.
-
-Para acessar um serviço da API, adicione o cabeçalho *x-acess-token* contendo o token gerado, e content-type como sendo application/json.
-
 Rotas principais: 
 
 1) Pizzas
